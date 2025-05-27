@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zaidan | Graphic Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: #f0f0f5;
+      color: #333;
+    }
+
+    /* LANYARD */
+    .lanyard-container {
+      position: fixed;
+      top: -140px;
+      left: 10%;
+      animation: dropDown 3s ease-out forwards;
+      z-index: 1000;
+    }
+
+    .lanyard-rope {
+      width: 10px;
+      height: 100px;
+      background-color: #555;
+      margin: 0 auto;
+      position: relative;
+      transform-origin: top center;
+      animation: swing 3s ease-in-out infinite;
+    }
+
+    .lanyard-id-card {
+      width: 120px;
+      height: 160px;
+      background-color: #fff;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: absolute;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+    }
+
+    .lanyard-id-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    @keyframes dropDown {
+      0% { top: -200px; }
+      100% { top: 20px; }
+    }
+
+    @keyframes swing {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    header {
+      background: linear-gradient(135deg, #000000, #333333);
+      color: #fff;
+      padding: 80px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3em;
+      margin: 0 0 10px;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-bottom: 30px;
+    }
+    .button {
+      background: #e63946;
+      color: #fff;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background: #d62839;
+    }
+    nav {
+      background: #222;
+      text-align: center;
+      padding: 15px;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+    section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #111;
+    }
+    .portfolio-item {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+    }
+    .portfolio-item h3 {
+      margin-top: 0;
+      color: #e63946;
+    }
+    .image-slider {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      padding: 10px 0;
+      scrollbar-width: thin;
+    }
+    .image-slider::-webkit-scrollbar {
+      height: 8px;
+    }
+    .image-slider::-webkit-scrollbar-thumb {
+      background-color: rgba(0,0,0,0.2);
+      border-radius: 4px;
+    }
+    .image-slider img {
+      height: 150px;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      object-fit: contain;
+    }
+    .image-slider img:hover {
+      transform: scale(1.05);
+    }
+    #lightbox {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+    #lightbox img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    }
+    footer {
+      background: #111;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+    #contact p {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Lanyard ID Card -->
+  <div class="lanyard-container">
+    <div class="lanyard-rope">
+      <div class="lanyard-id-card">
+        <img src="z.png" alt="ID Card">
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <h1>Hi, I’m Zaidan</h1>
+    <p>Creative Graphic Designer | Adobe Suite Expert | Project-Based Freelancer</p>
+    <a href="#contact" class="button">Hire Me</a>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I’m a passionate designer from Indonesia who works with global agencies to create bold, clear, and effective visual solutions. Experienced in branding, social media design, and digital assets with a strong foundation from real projects and internships.</p>
+    <p><strong>Tools I use:</strong> Photoshop, Illustrator, Capcut, Adobe Premiere, Canva</p>
+  </section>
+
+  <section id="portfolio">
+    <h2>Portfolio</h2>
+
+    <div class="portfolio-item">
+      <h3>P5 Project</h3>
+      <p>Logo and packaging design for a local brand. An interested, cozy style with consistent color gradations that build a strong visual identity.</p>
+      <div class="image-slider">
+        <img src="LOGO TENGAH.png" alt="Project P5 - 1" onclick="openLightbox(this)">
+        <img src="MOCKUP T-SHIRT.jpg" alt="Project P5 - 2" onclick="openLightbox(this)">
+        <img src="MUHAMAD ZAIDAN_MOCK UP MERCHANDISE.jpg" alt="Project P5 - 3" onclick="openLightbox(this)">
+        <img src="feed ig.jpg" alt="Project P5 - 4" onclick="openLightbox(this)">
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <h3>Bir Pletok</h3>
+      <p>Brosur International Drink From Jakarta</p>
+      <div class="image-slider">
+        <img src="brosur dpn.jpg" alt="Bir Pletok - 1" onclick="openLightbox(this)">
+        <img src="brosur blkg.jpg" alt="Bir Pletok - 2" onclick="openLightbox(this)">
+      </div>
+    </div>
+
+    <div class="portfolio-item">
+      <h3>Infografis</h3>
+      <p>Infografis Design</p>
+      <div class="image-slider">
+        <img src="Infografis pp.jpg" alt="Infografis - 1" onclick="openLightbox(this)">
+        <img src="infografis.jpg" alt="Infografis - 2" onclick="openLightbox(this)">
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Ready to work together? Let’s bring your ideas to life!</p>
+    <div style="text-align: center; margin-top: 30px;">
+      <a href="https://wa.me/62881024313866?text=Hi%20Zaidan%2C%20saya%20tertarik%20dengan%20jasa%20desain%20Anda." class="button" target="_blank" style="margin: 10px;">Chat via WhatsApp</a>
+      <a href="https://instagram.com/mmdzdn_" target="_blank" class="button" style="background:#E1306C; margin: 10px;">Follow on Instagram</a>
+    </div>
+    <p>Email: muhamadzaidann@gmail.com</p>
+    <p>LinkedIn: Muhamad Zaidan</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Zaidan. All rights reserved.</p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Preview">
+  </div>
+
+  <script>
+    function openLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightboxImg.src = img.src;
+      lightbox.style.display = 'flex';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
