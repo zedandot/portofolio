@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,65 +15,15 @@
       font-family: 'Poppins', sans-serif;
       background: #f0f0f5;
       color: #333;
+      overflow-x: hidden; /* supaya animasi lanyard gak muncul scrollbar horizontal */
     }
-
-    /* LANYARD */
-    .lanyard-container {
-      position: fixed;
-      top: -140px;
-      left: 10%;
-      animation: dropDown 3s ease-out forwards;
-      z-index: 1000;
-    }
-
-    .lanyard-rope {
-      width: 10px;
-      height: 100px;
-      background-color: #555;
-      margin: 0 auto;
-      position: relative;
-      transform-origin: top center;
-      animation: swing 3s ease-in-out infinite;
-    }
-
-    .lanyard-id-card {
-      width: 120px;
-      height: 160px;
-      background-color: #fff;
-      border: 2px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      position: absolute;
-      top: 100px;
-      left: 50%;
-      transform: translateX(-50%);
-      overflow: hidden;
-    }
-
-    .lanyard-id-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    @keyframes dropDown {
-      0% { top: -200px; }
-      100% { top: 20px; }
-    }
-
-    @keyframes swing {
-      0% { transform: rotate(0deg); }
-      25% { transform: rotate(5deg); }
-      50% { transform: rotate(0deg); }
-      75% { transform: rotate(-5deg); }
-      100% { transform: rotate(0deg); }
-    }
-
     header {
       background: linear-gradient(135deg, #000000, #333333);
       color: #fff;
       padding: 80px 20px;
       text-align: center;
+      position: relative;
+      z-index: 10;
     }
     header h1 {
       font-size: 3em;
@@ -90,14 +41,29 @@
       border-radius: 30px;
       font-weight: bold;
       transition: background 0.3s ease;
+      display: inline-block;
+      white-space: nowrap;
+      min-width: 180px;      /* Lebar minimal */
+      font-size: 16px;       /* Ukuran font tetap */
+      text-align: center;
+      user-select: none;
     }
     .button:hover {
       background: #d62839;
+    }
+    @media (max-width: 480px) {
+      .button {
+        min-width: 160px;    /* Lebar tombol tetap saat di HP */
+        font-size: 16px;     /* Font size tetap */
+        padding: 12px 20px;  /* Padding tetap */
+      }
     }
     nav {
       background: #222;
       text-align: center;
       padding: 15px;
+      position: relative;
+      z-index: 10;
     }
     nav a {
       color: #fff;
@@ -109,6 +75,8 @@
       max-width: 1000px;
       margin: auto;
       padding: 60px 20px;
+      position: relative;
+      z-index: 10;
     }
     section h2 {
       font-size: 2em;
@@ -175,20 +143,105 @@
       text-align: center;
       padding: 20px;
       font-size: 0.9em;
+      position: relative;
+      z-index: 10;
     }
     #contact p {
       text-align: center;
+    }
+
+    /* ===== Animasi Lanyard ===== */
+    .lanyard-container {
+      position: fixed;
+      top: -300px; /* mulai di atas layar */
+      left: 20px;  /* di kiri dekat pinggir layar */
+      width: 100px;
+      height: 250px;
+      z-index: 1000;
+      animation: dropLanyard 3s ease forwards;
+      animation-delay: 1s;
+      pointer-events: none;
+    }
+    .lanyard-cord {
+      width: 6px;
+      height: 160px;
+      background: linear-gradient(45deg, #222 25%, #555 50%, #222 75%);
+      border-radius: 3px;
+      margin: 0 auto;
+      position: relative;
+      animation: cordSwing 3s ease forwards;
+      transform-origin: top center;
+    }
+    .lanyard-connector {
+      width: 18px;
+      height: 10px;
+      background: #555;
+      margin: 0 auto;
+      border-radius: 2px;
+      position: relative;
+      top: -4px;
+      box-shadow: inset 0 0 4px #222;
+    }
+    .lanyard-id {
+      width: 100px;
+      height: 120px;
+      background: #fff;
+      margin: 10px auto 0;
+      border-radius: 15px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+      border: 2px solid #e63946;
+      position: relative;
+      overflow: hidden;
+      font-family: 'Poppins', sans-serif;
+      color: #333;
+      padding: 12px 10px;
+      box-sizing: border-box;
+      text-align: center;
+      animation: idFadeIn 1s ease 3s forwards;
+      opacity: 0;
+    }
+    .lanyard-id h4 {
+      margin: 8px 0 6px;
+      font-weight: 700;
+      font-size: 1.2em;
+      color: #e63946;
+    }
+    .lanyard-id p {
+      font-size: 0.9em;
+      margin: 2px 0;
+    }
+    /* Animasi turun */
+    @keyframes dropLanyard {
+      0% { top: -300px; }
+      60% { top: 50px; }
+      80% { top: 40px; }
+      100% { top: 50px; }
+    }
+    /* Animasi ayunan tali */
+    @keyframes cordSwing {
+      0% { transform: rotate(0deg); }
+      20% { transform: rotate(10deg); }
+      40% { transform: rotate(-8deg); }
+      60% { transform: rotate(6deg); }
+      80% { transform: rotate(-4deg); }
+      100% { transform: rotate(0deg); }
+    }
+    /* Fade in ID card */
+    @keyframes idFadeIn {
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Lanyard ID Card -->
-  <div class="lanyard-container">
-    <div class="lanyard-rope">
-      <div class="lanyard-id-card">
-        <img src="z.png" alt="ID Card">
-      </div>
+  <!-- Animasi Lanyard -->
+  <div class="lanyard-container" aria-hidden="true">
+    <div class="lanyard-cord"></div>
+    <div class="lanyard-connector"></div>
+    <div class="lanyard-id">
+      <h4>Muhamad Zaidan</h4>
+      <p>Graphic Designer</p>
+      <p>ID: J0403241031</p>
     </div>
   </div>
 
@@ -247,9 +300,21 @@
     <h2>Contact</h2>
     <p>Ready to work together? Let’s bring your ideas to life!</p>
     <div style="text-align: center; margin-top: 30px;">
-      <a href="https://wa.me/62881024313866?text=Hi%20Zaidan%2C%20saya%20tertarik%20dengan%20jasa%20desain%20Anda." class="button" target="_blank" style="margin: 10px;">Chat via WhatsApp</a>
-      <a href="https://instagram.com/mmdzdn_" target="_blank" class="button" style="background:#E1306C; margin: 10px;">Follow on Instagram</a>
+      <a href="https://wa.me/62881024313866?text=Hi%20Zaidan%2C%20saya%20tertarik%20dengan%20jasa%20desain%20Anda."
+         target="_blank"
+         class="button"
+         style="margin: 10px;">
+        Chat via WhatsApp
+      </a>
+
+      <a href="https://instagram.com/mmdzdn_"
+         target="_blank"
+         class="button"
+         style="background:#E1306C; margin: 10px;">
+        Follow on Instagram
+      </a>
     </div>
+
     <p>Email: muhamadzaidann@gmail.com</p>
     <p>LinkedIn: Muhamad Zaidan</p>
   </section>
@@ -270,6 +335,7 @@
       lightboxImg.src = img.src;
       lightbox.style.display = 'flex';
     }
+
     function closeLightbox() {
       document.getElementById('lightbox').style.display = 'none';
     }
@@ -277,3 +343,4 @@
 
 </body>
 </html>
+
